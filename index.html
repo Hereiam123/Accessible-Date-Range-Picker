@@ -8845,7 +8845,7 @@
         function(date) {
           // let's underline saturdays and assign a title
           if (date == undefined) return {};
-          return { tabindex: "0" };
+          return { tabindex: "0", "aria-label":date.date.toString().slice(0,15) };
         }
       ]
     });
