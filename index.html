@@ -4,6 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      .drp_top-bar {
+        display: none;
+      }
       .month:focus {
         outline: blue !important;
       }
@@ -8845,7 +8848,10 @@
         function(date) {
           // let's underline saturdays and assign a title
           if (date == undefined) return {};
-          return { tabindex: "0", "aria-label":date.date.toString().slice(0,15) };
+          return {
+            tabindex: "0",
+            "aria-label": date.date.toString().slice(0, 15)
+          };
         }
       ]
     });
@@ -8863,6 +8869,12 @@
           .data("dateRangePicker")
           .close();
       }
+    });
+    $(".prev, .next").attr("tabindex", "0");
+    $("#daterangepicker").bind("datepicker-change", function(event, obj) {
+      $("#daterangepicker")
+        .data("dateRangePicker")
+        .close();
     });
   </script>
 </html>
